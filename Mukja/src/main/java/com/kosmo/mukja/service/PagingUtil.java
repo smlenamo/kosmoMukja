@@ -1,5 +1,5 @@
 package com.kosmo.mukja.service;
 
-public class MukjaService {
+public class PagingUtil {
 
 }

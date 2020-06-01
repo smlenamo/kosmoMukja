@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace속성:매퍼파일의 완전한경로.xml는 생략 -->
+<!-- ※ ibatis와는 다르게 id값에 .(dot)을 사용 못한다 -->
+<mapper namespace="mybatis.SearchMap">
+
+	<select id="searchDongList" parameterType="java.util.Map" resultType="dongDTO">
+      select * from addr  WHERE dong LIKE '%' || #{dong} || '%' OR dong_sub LIKE'%' || #{dong} || '%' ORDER BY code 
+      
+    </select>
+   
+	<select id="getMarkerList" parameterType="java.util.Map" resultType="storeDTO">
+		 select * from store<![CDATA[where store_lat<#{bukdonglat} and  store_lat>#{namsualat} and store_lng<#{bukdonglng} and store_lng >#{namsualng}]]>  
+	</select>
+</mapper>
